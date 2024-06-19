@@ -134,32 +134,46 @@ async def overlay(ctx):
     await ctx.send(file=discord.File(output, 'overlayed_image.png'))
 
 @bot.command()
+@commands.guild_only()  # Ensures commands only work in server channels
 async def LEAK(ctx):
-    await ctx.send('<@&1230629514468392960>')
+    if ctx.channel.id == 1237115907311145071:  # Channel ID for #leak channel
+        await ctx.send('<@&1230629514468392960>')
 
 @bot.command()
+@commands.guild_only()
 async def EVENT(ctx):
-    await ctx.send('<@&1242872145277747281>')
+    if ctx.channel.id == 1242172763574112376:  # Channel ID for #event channel
+        await ctx.send('<@&1242872145277747281>')
 
 @bot.command()
-async def YT(ctx):
-    await ctx.send('<@&1230629339641413652>')
-
-@bot.command()
-async def POLL(ctx):
-    await ctx.send('<@&1237314912829571155>')
-
-@bot.command()
-async def ANNOUNCEMENT(ctx):
-    await ctx.send('<@&1230629239896801310>')
-
-@bot.command()
+@commands.guild_only()
 async def GIVEAWAY(ctx):
-    await ctx.send('<@&1230629427981979851>')
+    if ctx.channel.id == 1245827862381068299:  # Channel ID for #giveaway channel
+        await ctx.send('<@&1230629427981979851>')
 
 @bot.command()
+@commands.guild_only()
 async def Ping(ctx):
-    await ctx.send('Pong!')
+    if ctx.channel.id == 1251965689883922484:  # Channel ID for #ping channel
+        await ctx.send('Pong!')
+
+@bot.command()
+@commands.guild_only()
+async def ANNOUNCEMENT(ctx):
+    if ctx.channel.id == 1230542885783605263:  # Channel ID for #announcement channel
+        await ctx.send('<@&1230629239896801310>')
+
+@bot.command()
+@commands.guild_only()
+async def YT(ctx):
+    if ctx.channel.id == 1247921159647920149:  # Channel ID for #yt channel
+        await ctx.send('<@&1230629339641413652>')
+
+@bot.command()
+@commands.guild_only()
+async def POLL(ctx):
+    if ctx.channel.id == 1237155606645702759:  # Channel ID for #poll channel
+        await ctx.send('<@&1237314912829571155>')
 
 @tasks.loop(hours=24)
 async def monitor_pings():
