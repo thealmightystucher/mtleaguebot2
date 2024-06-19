@@ -185,4 +185,8 @@ async def on_ready():
     monitor_pings.start()
     print(f'Logged in as {bot.user}!')
 
-bot.run(os.environ.get('DISCORD_BOT_TOKEN'))
+token = os.environ.get('DISCORD_BOT_TOKEN')
+if token is None:
+    print("Token is not set.")
+else:
+    print:("Token is set.")
